@@ -1,13 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API routes. 
 
 ## Dependencies or Main Features
-
-[Next.js](https://nextjs.org/)
-[Appolo GraphQL](https://www.apollographql.com/)
-GraphQL server is running on the [API routes](https://nextjs.org/docs/api-routes/introduction) of Next.js
-The first GraphQL request is fully rendered by Server-side rendering (SSR).
-The clinet also has its own GraphQL API using useQuery.
-
+<ul>
+<li>[Next.js](https://nextjs.org/)
+<li>[Appolo GraphQL](https://www.apollographql.com/)
+<li>GraphQL server is running on the [API routes](https://nextjs.org/docs/api-routes/introduction) of Next.js
+<li>The first GraphQL request is fully rendered by Server-side rendering (SSR).
+<li>The clinet also has its own GraphQL API using useQuery.
+</ul>
+<br>
 ## References
 The officlal Next.js example [with apollo](https://github.com/vercel/next.js/tree/canary/examples/with-apollo)
 The docs of Apollo [Server](https://www.apollographql.com/docs/apollo-server/)
