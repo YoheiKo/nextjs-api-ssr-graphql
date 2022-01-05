@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API routes. 
+This is a Next.js project with a GraphQL in its API routes. 
 <html>
  <body>
 <h3>Dependencies or Main Features</h3>
