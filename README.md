@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API route
 
 ## Dependencies or Main Features
 <ul>
-  <li>Next.js https://nextjs.org/
+  <li><a href="https://nextjs.org/">Next.js</a> 
 <li>Appolo GraphQL https://www.apollographql.com/
 <li>GraphQL server is running on the API routes of Next.js
 <li>The first GraphQL request is fully rendered by Server-side rendering (SSR).
