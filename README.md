@@ -15,7 +15,7 @@ This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API route
 <li>The docs of <a href="https://www.apollographql.com/docs/apollo-server/" target="_blank">Apollo Server</a>
 <li>The docs of <a href="https://www.apollographql.com/docs/react/" target="_blank">Apollo Client(React)</a>
 <li>Zero to Full Stack Hero <a href="https://www.papareact.com/course" target="_blank">PAPAFAM</a> 
-<ul>
+</ul>
 <hr>
 <h3>Contact</h3>
 Yohei Komori <br>
