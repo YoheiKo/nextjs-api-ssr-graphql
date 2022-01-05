@@ -20,7 +20,7 @@ This is a Next.js project with a GraphQL in its API routes.
 <h3>Contact</h3>
 Yohei Komori <br>
  <address>
-  Email: <a href="hurumori@gmail.com">hurumori@gmail.com</a>
+  Email: <a href="mailto:hurumori@gmail.com">hurumori@gmail.com</a>
   </address>
   </body>
 </html>
