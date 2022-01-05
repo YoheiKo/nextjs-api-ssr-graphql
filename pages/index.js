@@ -1,8 +1,56 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { gql, setLogVerbosity, useMutation, useQuery } from "@apollo/client";
+import Head from "next/head";
+import { useRef, useState } from "react";
+import { initializeApollo } from "../lib/apolloClient";
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+const GET_BOOKS = gql`
+  query GetBooks {
+    books {
+      title
+      author {
+        name
+        age
+      }
+    }
+  }
+`;
+
+const UPDATE_BOOK = gql`
+  mutation AddBook($title: String, $name: String, $age: Int) {
+    AddBook(title: $title, name: $name, age: $age) {
+      title
+      author {
+        name
+        age
+      }
+    }
+  }
+`;
+
+export default function Home({ results }) {
+  // const { loading, error, data } = useQuery(GET_BOOKS);
+  const titleRef = useRef(null);
+  const nameRef = useRef(null);
+  const ageRef = useRef(null);
+  const [updateBook] = useMutation(UPDATE_BOOK);
+  const [renderbooks, setRenderBooks] = useState(results.books);
+
+  const addRecord = (e) => {
+    e.preventDefault();
+
+    updateBook({
+      variables: {
+        title: titleRef.current.value,
+        name: nameRef.current.value,
+        age: parseInt(ageRef.current.value),
+      },
+    }).then((res) => {
+      console.log(res.data.AddBook);
+      setRenderBooks([...renderbooks, res.data.AddBook]);
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,59 +59,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+      <h1>GraphQL Example</h1>
+      {renderbooks?.map(({ title, author: { age, name } }) => (
+        <p key={`${title}${age}${name}`}>
+          {title} by {name} (age: {age})
         </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      ))}
+      <form>
+        <input ref={titleRef} type="text" placeholder="title" />
+        <input ref={nameRef} type="text" placeholder="name" />
+        <input ref={ageRef} type="text" placeholder="age" />
+        <button onClick={addRecord} type="submit">
+          MUTATE - basically add...
+        </button>
+      </form>
     </div>
-  )
+  );
+}
+
+export async function getServerSideProps(context) {
+  const apolloClient = initializeApollo();
+  const res = await apolloClient.query({
+    query: GET_BOOKS,
+  });
+
+  return {
+    props: {
+      results: res.data,
+    },
+  };
 }
