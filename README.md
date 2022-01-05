@@ -19,6 +19,8 @@ This is a Next.js project with a GraphQL in its API routes.
 <hr>
 <h3>Contact</h3>
 Yohei Komori <br>
-Email: hurumori@gmail.com
+ <address>
+  Email: <a href="hurumori@gmail.com">hurumori@gmail.com</a>
+  </address>
   </body>
 </html>
