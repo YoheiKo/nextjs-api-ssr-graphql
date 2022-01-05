@@ -1,5 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API routes. 
 <html>
+ <body>
 <h3>Dependencies or Main Features</h3>
 <ul>
   <li><a href="https://nextjs.org/" target="_blank">Next.js</a> 
@@ -17,7 +18,7 @@ This is a [Next.js](https://nextjs.org/) project with a GraphQL in its API route
 <ul>
 <hr>
 <h3>Contact</h3>
-
 Yohei Komori <br>
 Email: hurumori@gmail.com
+  </body>
 </html>
