@@ -32,6 +32,9 @@ This is a Next.js project with a GraphQL in its API routes.
   <li><a href="https://www.lancers.jp/menu/detail/1309488" target="_blank">https://www.lancers.jp/menu/detail/1309488</a></li>
   <li><a href="https://www.lancers.jp/menu/detail/1309487" target="_blank">https://www.lancers.jp/menu/detail/1309487</a></li>
   <li><a href="https://www.lancers.jp/menu/detail/1309478" target="_blank">https://www.lancers.jp/menu/detail/1309478</a></li>
+ <li><a href="https://www.lancers.jp/menu/detail/1313938" target="_blank">https://www.lancers.jp/menu/detail/1313938</a></li>
+ <li><a href="https://www.lancers.jp/menu/detail/1313973" target="_blank">https://www.lancers.jp/menu/detail/1313973</a></li>
+ <li><a href="https://www.lancers.jp/menu/detail/1313966" target="_blank">https://www.lancers.jp/menu/detail/1313966</a></li>
 </ul>
 
 <hr>
